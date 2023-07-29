@@ -10,14 +10,18 @@ import { Axios } from "../../config";
 
 const MyGigs = () => {
   const { authUser } = useAuthStore();
+  console.log(authUser);
+
   const queryClient = useQueryClient();
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["myGigs"],
     queryFn: () =>
-      Axios.get(`${requests.gigs}?userId=${authUser._id}`).then(
+      Axios.get(`${requests.gigs}/${authUser._id}`).then(
         (res) => res.data
       ),
   });
+
+  console.log(data);
 
   const mutation = useMutation({
     mutationFn: (id) => {
@@ -36,7 +40,6 @@ const MyGigs = () => {
     refetch();
   }, []);
 
-  console.log(data)
 
   const tableActions = data.gigs?.map((item) => ({
     image: (

@@ -58,3 +58,23 @@ export const getGigs = async (req, res, next) => {
     next(err);
   }
 };
+
+
+// router.get("/:userId", getUserGigs);
+
+export const getUserGigs = async (req, res, next) => {
+  // get user gigs by userid from params
+  const { userId } = req.params;
+
+  try {
+  const gigs = await Gig.find({ userId });
+    res.status(200).send({ gigs });
+  }
+  catch (err) {
+    next(err);
+  }
+
+
+}
+
+

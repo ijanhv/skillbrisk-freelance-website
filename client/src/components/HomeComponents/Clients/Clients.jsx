@@ -9,10 +9,10 @@ const Clients = () => {
   const clientsData = [client1, client2, client3, client4, client5];
 
   return (
-    <section className="w-full bg-clientBg py-6">
+    <section className="w-full bg-slate-900 py-6">
       <div className="contain">
         <div className="flex items-center justify-center w-full gap-6">
-          <h2 className="text-base font-medium text-darkColor hidden md:flex">
+          <h2 className="text-base font-medium text-white hidden md:flex">
             Trusted by:
           </h2>
           <div className="flex items-center justify-start gap-6">
